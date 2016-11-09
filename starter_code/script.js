@@ -1,19 +1,25 @@
 // Task 1: Create a function that randomly chooses among 'rock', 'paper', or 'scissors'.
-var generateComputerChoice = function () {
+var generateComputerChoice = function() {
     // Task 1, Step 1: Create an array with three elements ("rock", "paper" and "scissors").
+    var firstArray = ["rock", "paper", "scissors"];
+    var myNumber = Math.floor(Math.random() * 3);
+
+
+
 
     // Task 1, Step 2: Use the JavaScript Math function to generate a random whole
     // number between 0 and 2. Be sure to save it to a variable.
 
     // Task 1, Step 3: Use this randomly generated number to pull a value from the
     // array (eg myArray[randomNum])
-
+    var choice = firstArray[myNumber];
+    return choice;
     // Task 1, Step 4: return this new value
 };
 
 // Task 2: Create a function that compares the userChoice and the computerChoice
 // to decide who won.
-var pickWinner = function (userChoice, computerChoice) {
+var pickWinner = function(userChoice, computerChoice) {
     console.log("user choice: " + userChoice);
     console.log("computer choice: " + computerChoice);
     // Task 2, Step 1: Create an "if/else if/else" statement that compares the
@@ -21,7 +27,33 @@ var pickWinner = function (userChoice, computerChoice) {
 
     // Task 2, Step 2: Depending on who is the winner of the game console.log
     // either "user wins", "computer wins" or "draw"
-
+    if (userChoice === "rock" && computerChoice === "scissors") {
+        console.log("User Wins");
+    }
+    else if (userChoice === "rock" && computerChoice === "paper") {
+        console.log("Computer Wins");
+    }
+    else if (userChoice === "rock" && computerChoice === "rock") {
+        console.log("Draw");
+    }
+    else if (userChoice === "paper" && computerChoice === "scissors") {
+        console.log("Computer Wins");
+    }
+    else if (userChoice === "paper" && computerChoice === "paper") {
+        console.log("Draw");
+    }
+    else if (userChoice === "paper" && computerChoice === "rock") {
+        console.log("User Wins");
+    }
+    else if (userChoice === "scissors" && computerChoice === "scissors") {
+        console.log("Draw");
+    }
+    else if (userChoice === "scissors" && computerChoice === "paper") {
+        console.log("Computer Wins");
+    }
+    else if (userChoice === "scissors" && computerChoice === "rock") {
+        console.log("Computer Wins");
+    }
     // Task 4: Show `computerChoice` in HTML after the words "Computer's choice:"
     // Task 5: Show the winner in HTML after the word "Winner:"
 };
