@@ -3,7 +3,9 @@ var generateComputerChoice = function() {
     // Task 1, Step 1: Create an array with three elements ("rock", "paper" and "scissors").
     var firstArray = ["rock", "paper", "scissors"];
     var myNumber = Math.floor(Math.random() * 3);
-
+    $("#rockpic").hide();
+    $("#paperpic").hide();
+    $("#scissorspic").hide();
 
 
 
@@ -13,6 +15,19 @@ var generateComputerChoice = function() {
     // Task 1, Step 3: Use this randomly generated number to pull a value from the
     // array (eg myArray[randomNum])
     var choice = firstArray[myNumber];
+    if (choice == firstArray[0]) {
+        $("#rockpic").show(); 
+    }
+    else if (choice === firstArray[1]) {
+        $("#paperpic").show();
+    }
+    else  {
+        $("#scissorspic").show();
+    }
+    
+   
+    
+   
     return choice;
     // Task 1, Step 4: return this new value
 };
@@ -63,6 +78,9 @@ var pickWinner = function(userChoice, computerChoice) {
 /* DOCUMENT READY: Everything inside this function will happen after
    the user's browser has finished loading the webpage. */
 $(document).ready(function() {
+    $("#rockpic").hide();
+    $("#paperpic").hide();
+    $("#scissorspic").hide();
 
 
     $("#rock").click(function() {
@@ -78,21 +96,29 @@ $(document).ready(function() {
         var userChoice = "scissors";
         var computerChoice = generateComputerChoice();
         pickWinner(userChoice, computerChoice);
+        
+        var CPUwins;
+        var Userwins;
+        if (pickWinner === computerChoice) {
+        
+    }
     });
     });
+    
+    
     // This line calls the `generateComputerChoice` function and assigns its
     // return value to the variable `computerChoice`.
-    var computerChoice = generateComputerChoice();
+    
 
     // This line sets `userChoice` variable to 'rock'. This value can be changed
     // manually when testing in the console.
-    var userChoice = "rock";
+  
     // Task 3: To be completed AFTER this game functions in the console.
     // Set `userChoice` to "null" and create a click handler that changes the
     // value based on the item the user clicks on the HTML page.
 
     // This line calls the `pickWinner` function with the `userChoice` variable
     // and the `computerChoice` variable.
-    pickWinner(userChoice, computerChoice);
+    
 
 });
