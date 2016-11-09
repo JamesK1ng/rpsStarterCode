@@ -24,44 +24,62 @@ var pickWinner = function(userChoice, computerChoice) {
     console.log("computer choice: " + computerChoice);
     // Task 2, Step 1: Create an "if/else if/else" statement that compares the
     // userChoice and computerChoice under any possible game outcome.
-
+    var winner;
     // Task 2, Step 2: Depending on who is the winner of the game console.log
     // either "user wins", "computer wins" or "draw"
     if (userChoice === "rock" && computerChoice === "scissors") {
-        console.log("User Wins");
+        winner = "User";
     }
     else if (userChoice === "rock" && computerChoice === "paper") {
-        console.log("Computer Wins");
+        winner = "Computer";
     }
     else if (userChoice === "rock" && computerChoice === "rock") {
-        console.log("Draw");
+        winner = "Draw";
     }
     else if (userChoice === "paper" && computerChoice === "scissors") {
-        console.log("Computer Wins");
+        winner = "Computer";
     }
     else if (userChoice === "paper" && computerChoice === "paper") {
-        console.log("Draw");
+        winner = "Draw";
     }
     else if (userChoice === "paper" && computerChoice === "rock") {
-        console.log("User Wins");
+        winner = "User";
     }
     else if (userChoice === "scissors" && computerChoice === "scissors") {
-        console.log("Draw");
+        winner = "Draw";
     }
     else if (userChoice === "scissors" && computerChoice === "paper") {
-        console.log("Computer Wins");
+        winner = "User";
     }
     else if (userChoice === "scissors" && computerChoice === "rock") {
-        console.log("Computer Wins");
+        winner = "Computer";
     }
-    // Task 4: Show `computerChoice` in HTML after the words "Computer's choice:"
-    // Task 5: Show the winner in HTML after the word "Winner:"
+    console.log("Winner: " + winner);
+    $("#winner").html(winner)
+        // Task 4: Show `computerChoice` in HTML after the words "Computer's choice:"
+        // Task 5: Show the winner in HTML after the word "Winner:"
 };
 
 /* DOCUMENT READY: Everything inside this function will happen after
    the user's browser has finished loading the webpage. */
 $(document).ready(function() {
 
+
+    $("#rock").click(function() {
+        var userChoice = "rock";
+        var computerChoice = generateComputerChoice();
+        pickWinner(userChoice, computerChoice);
+    });
+    $("#paper").click(function() {
+        var userChoice = "paper";
+        var computerChoice = generateComputerChoice();
+        pickWinner(userChoice, computerChoice);
+        $("#scissors").click(function() {
+        var userChoice = "scissors";
+        var computerChoice = generateComputerChoice();
+        pickWinner(userChoice, computerChoice);
+    });
+    });
     // This line calls the `generateComputerChoice` function and assigns its
     // return value to the variable `computerChoice`.
     var computerChoice = generateComputerChoice();
